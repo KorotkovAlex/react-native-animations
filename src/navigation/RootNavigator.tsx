@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { OnboardingScreen } from '../screens';
+import { GradientClockScreen, MainSkiaScreen } from '../skiaModule';
+import { MainReanimatedScreen } from '../reanimatedModule';
 
 interface RootNavigatorProps {}
 
@@ -12,7 +12,20 @@ export const RootNavigator: FC<RootNavigatorProps> = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="OnboardingScreen" component={OnboardingScreen} />
+        <Stack.Group>
+          <Stack.Screen
+            name="GradientClockScreen"
+            component={GradientClockScreen}
+          />
+          <Stack.Screen name="MainSkiaScreen" component={MainSkiaScreen} />
+        </Stack.Group>
+
+        <Stack.Group>
+          <Stack.Screen
+            name="MainReanimatedScreen"
+            component={MainReanimatedScreen}
+          />
+        </Stack.Group>
       </Stack.Navigator>
     </NavigationContainer>
   );
